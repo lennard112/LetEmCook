@@ -1,0 +1,70 @@
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Let em’ Cook - Login</title>
+    <link rel="stylesheet" href="{% static 'lecApp/login-styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1 class="left-title">
+                <span class="orange">Let</span> Em’<br>
+                <span class="yellow">Cook</span>
+            </h1>
+        </div> <!-- Image handled by CSS background -->
+
+        <div class="right-panel">
+            <!-- Image now acts as a clickable button to redirect to dashboard page -->
+            <a href="{% url 'dashboard' %}">
+                <img src="{% static 'lecApp/cone.png' %}" alt="Icon" class="panel-icon" style="cursor:pointer;">
+            </a>
+
+            <div class="form-box">
+                <h2 class="h2-login">Login</h2>
+
+     
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <div class="form-buttons">
+                        <button type="submit">Login</button>
+                    </div>
+
+                    <p class="center-text">Don't have an account? <a href="{% url 'register' %}">Register here!</a></p>
+
+                    <hr>
+
+                    <div class="social-buttons">
+                        <!-- Google Sign-In Button -->
+                        <a href="{% provider_login_url 'google' %}" class="github-btn">
+                            Login with Google <img src="{% static 'lecApp/google.png' %}" alt="Google" />
+                        </a>
+
+                        <!-- GitHub Sign-In Button -->
+                        <a href="{% provider_login_url 'github' %}" class="github-btn">
+                            Login with GitHub <img src="{% static 'lecApp/github.png' %}" alt="GitHub" />
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
