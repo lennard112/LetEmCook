@@ -19,18 +19,23 @@
                 <span class="orange">Let</span> Em’<br>
                 <span class="yellow">Cook</span>
             </h1>
-        </div> <!-- Image handled by CSS background -->
+        </div>
 
         <div class="right-panel">
-            <!-- Image now acts as a clickable button to redirect to dashboard page -->
-            <a href="{% url 'dashboard' %}">
+            <a href="{% url 'welcome' %}">
                 <img src="{% static 'lecApp/cone.png' %}" alt="Icon" class="panel-icon" style="cursor:pointer;">
             </a>
 
             <div class="form-box">
                 <h2 class="h2-login">Login</h2>
 
-     
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
 
                 <form method="POST">
                     {% csrf_token %}
@@ -50,12 +55,10 @@
                     <hr>
 
                     <div class="social-buttons">
-                        <!-- Google Sign-In Button -->
                         <a href="{% provider_login_url 'google' %}" class="github-btn">
                             Login with Google <img src="{% static 'lecApp/google.png' %}" alt="Google" />
                         </a>
 
-                        <!-- GitHub Sign-In Button -->
                         <a href="{% provider_login_url 'github' %}" class="github-btn">
                             Login with GitHub <img src="{% static 'lecApp/github.png' %}" alt="GitHub" />
                         </a>
@@ -65,6 +68,32 @@
             </div>
         </div>
     </div>
+
+    <style>
+        ul.messages {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        ul.messages li {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        ul.messages li.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        ul.messages li.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
+
 </body>
 
 </html>

@@ -9,4 +9,5 @@ urlpatterns = [
     path('login/', views.login_page, name='login'),  # Login page route
     path('register/', views.register_page, name='register'),  # Registration page route
     path('accounts/', include('allauth.urls')),  # Include allauth routes
+    
 ]
