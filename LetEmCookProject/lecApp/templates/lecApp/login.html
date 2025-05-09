@@ -22,7 +22,7 @@
         </div>
 
         <div class="right-panel">
-            <a href="{% url 'welcome' %}">
+            <a href="{% url 'lecApp:welcome' %}">
                 <img src="{% static 'lecApp/cone.png' %}" alt="Icon" class="panel-icon" style="cursor:pointer;">
             </a>
 
@@ -50,7 +50,8 @@
                         <button type="submit">Login</button>
                     </div>
 
-                    <p class="center-text">Don't have an account? <a href="{% url 'register' %}">Register here!</a></p>
+                    <p class="center-text">Don't have an account? <a href="{% url 'lecApp:register' %}">Register here!</a></p>
+
 
                     <hr>
 

@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="already-have-account">
-                        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                        <p>Already have an account? <a href="{% url 'lecApp:login' %}">Login here</a></p>
                     </div>
 
                     <hr />
@@ -54,7 +54,7 @@
                             Login with GitHub <img src="{% static 'lecApp/github.png' %}" alt="GitHub" />
                         </a>
 
-                        <a href="{% url 'welcome' %}">
+                        <a href="{% url 'lecApp:welcome' %}">
                             <img src="{% static 'lecApp/cone.png' %}" alt="Icon" class="panel-icon" style="cursor:pointer;">
                         </a>
                     </div>
